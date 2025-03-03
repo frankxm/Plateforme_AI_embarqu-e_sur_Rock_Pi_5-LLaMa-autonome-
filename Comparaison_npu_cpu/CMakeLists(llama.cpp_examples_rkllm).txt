@@ -1,0 +1,8 @@
+set(TARGET llama_rkllm-cli)
+add_executable(${TARGET} rkllm_main.cpp)
+install(TARGETS ${TARGET} RUNTIME)
+target_link_libraries(${TARGET} PRIVATE common llama ${CMAKE_THREAD_LIBS_INIT} rkllmrt)
+target_compile_features(${TARGET} PRIVATE cxx_std_17)
+
+# 设置 RPATH
+set_target_properties(${TARGET} PROPERTIES BUILD_RPATH /home/rock/llama.cpp/lib)

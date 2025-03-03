@@ -1,0 +1,505 @@
+#!/usr/bin/env python3
+
+
+
+
+import sys
+import re
+import time
+import threading
+import queue
+import math
+import tty
+import os
+import termios
+import subprocess
+import optparse
+import pandas as pd
+import matplotlib.pyplot as pltt
+import psutil
+import csv
+import numpy as np
+try:
+    import plotext as plt
+except:
+    print("Install plotext with `pip3 install plotext`")
+    sys.exit(-1)
+# 用于获取 CPU 负载、温度、内存使用情况。
+try:
+    import psutil
+except:
+    print("Install psutil with `pip3 install psutil`")
+    sys.exit(-1)
+
+# 记录数据的标志
+record_data = False
+# 存储记录的数据
+npu_data = []  # 存 NPU 负载
+cpu_data = []  # 存 CPU 负载
+temp_data = []  # 存 温度数据
+labels_data = []  # 存 温度传感器名称
+mem_free_data=[]
+def getkey():
+    old_settings = termios.tcgetattr(sys.stdin)
+    # print('old_settings:',old_settings)
+    # 使用 tty.setcbreak()，让程序不阻塞输入，即不会等待用户按下回车就能检测到按键。
+    tty.setcbreak(sys.stdin.fileno())
+    try:
+        while True:
+            # 使用 os.read() 来读取终端输入，这比 input() 更底层，能立即捕获按键。
+            b = os.read(sys.stdin.fileno(), 3).decode()
+            # ord转ascii为数字
+            if len(b) == 3:
+                k = ord(b[2])
+            else:
+                k = ord(b)
+            key_mapping = {
+                127: "backspace",
+                10: "return",
+                32: "space",
+                9: "tab",
+                27: "esc",
+                65: "up",
+                66: "down",
+                67: "right",
+                68: "left",
+            }
+            # print("get,",key_mapping.get(k, chr(k)))
+            return key_mapping.get(k, chr(k))
+    finally:
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings)
+
+
+def readload():
+    rkload = None
+    try:
+        with open("/sys/kernel/debug/rknpu/load", "r") as f:
+            rkload = f.read()
+    except:
+        print("Cannot read /sys/kernel/debug/rknpu/load. Run with `sudo`")
+        sys.exit(-2)
+    return rkload
+
+
+def readkver():
+    rkver = ":unknown"
+    try:
+        with open("/sys/kernel/debug/rknpu/version", "r") as f:
+            rkver = f.read()
+    except:
+        print("Cannot read /sys/kernel/debug/rknpu/load. Run with `sudo`")
+        sys.exit(-2)
+    return rkver.split(":")[1]
+
+def readlibver():
+    ver = []
+    try:
+        v = subprocess.check_output(
+            'find ./ -iname "librkllmrt.so"', shell=True
+        )
+
+        v = v.decode("ascii").strip().split('\n')
+        ver=v
+    except:
+        pass
+    return ver
+    
+def readlibver2():
+    lib_paths = []
+    for root, _, files in os.walk(os.path.expanduser("/home/rock/")):
+        if "librkllmrt.so" in files:
+            lib_paths.append(os.path.join(root, "librkllmrt.so"))
+        if len(lib_paths) > 3:  # 只查找最多 3 个
+            break
+    return lib_paths
+
+def readkernel():
+    v=''
+    try:
+        v = subprocess.check_output(
+            'uname -r', shell=True
+        )
+
+
+        v = v.decode("ascii")
+    except:
+        pass
+    return v
+
+def parseload(txt):
+    res = []
+    items = re.findall("Core([0-9]+):\s*([0-9]+)%", txt)
+    for core, pct in items:
+        res.append(int(pct))
+    return res
+
+
+def _kget_thread(q):
+    while True:
+        q.put(getkey())
+
+
+def tempbars():
+    # 存储温度传感器名称
+    labels = []
+    # 存储当前温度
+    temps = []
+    # 存储最高温度
+    tops = []
+
+    for k, v in psutil.sensors_temperatures().items():
+        if k.startswith("test"):
+            continue
+        if len(v) == 0:
+            continue
+        if v[0].current is None or v[0].high is None:
+            continue
+        # 记录传感器名称，去掉"_thermal"后缀
+        labels.append(k.replace("_thermal", ""))
+        # 记录当前温度（取整）
+        temps.append(math.floor(v[0].current))
+        # 记录允许的最高温度（取整）
+        tops.append(math.floor(v[0].high))
+
+    return labels, temps, tops
+
+
+def plot_npu_lines(plt, n_pts, samples):
+    plt.title(f"NPU Load")
+    plt.ylim(lower=0, upper=100)
+    for k in range(n_pts):
+        plt.plot([s[k] for s in samples], label=f"Core {k}")
+
+
+def plot_npu_bars(plt, n_pts, samples):
+    plt.title(f"NPU Load")
+    plt.ylim(lower=0, upper=100)
+    bars = samples[-1]
+    plt.bar([str(i) for i in range(len(bars))], bars, width=1 / 5)
+    [
+        plt.text(f"{bars[i]}%", x=i + 1, y=bars[i] + 1.5, alignment="center")
+        for i in range(len(bars))
+    ]
+
+def save_to_csv(time_start,time_end):
+    """ 将收集的数据保存到 CSV 文件 """
+    global npu_data, cpu_data, temp_data,labels_data ,mem_free_data # 确保修改的是全局变量
+
+    log_dir = os.path.expanduser("/home/rock/logs")  # 目标目录
+    log_pic_dir = os.path.expanduser("/home/rock/logs/pictures")  # 目标目录
+    os.makedirs(log_dir, exist_ok=True)  # 确保目录存在
+    os.makedirs(log_pic_dir, exist_ok=True)  # 确保目录存在
+
+    timestamp = time.time()
+    formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(timestamp))
+
+    filename = os.path.join(log_dir, f"{str(formatted_time)}.csv")
+    picfile=os.path.join(log_pic_dir,str(formatted_time))
+
+    # 修正表头
+    headers = [f"NPU{i}" for i in range(len(npu_data[0]))] + \
+              [f"CPU{i}" for i in range(len(cpu_data[0]))] + labels_data+["memory","swap"]
+
+    with open(filename, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(headers)  # 写入表头
+
+        for i in range(len(npu_data)):
+            writer.writerow(npu_data[i] + cpu_data[i] + temp_data[i]+mem_free_data[i])
+
+    print(f"Data saved to {filename}")
+
+
+
+
+    # 设置全局字体大小，让坐标轴、标签、图例都变大
+    pltt.rcParams.update({
+    "font.size": 20,             # 全局字体大小
+    "axes.labelsize": 24,        # x, y 轴标签大小
+    "axes.titlesize": 28,        # 标题字体大小
+    "xtick.labelsize": 20,       # x 轴刻度字体大小
+    "ytick.labelsize": 20,       # y 轴刻度字体大小
+    "legend.fontsize": 20        # 图例字体大小
+})
+
+
+    pltt.figure(figsize=(24, 18))  # 放大图像
+    pltt.title("NPU Load", fontsize=30)
+    pltt.ylim(0, 100)
+    pltt.xlabel("Time (seconds)", fontsize=26)
+    pltt.ylabel("Load (%)", fontsize=26)
+    x_values = np.linspace(time_start, time_end, len(npu_data))-time_start
+    for k in range(len(npu_data[0])):
+        pltt.plot(x_values,[s[k] for s in npu_data], label=f"Core {k}", linewidth=3)  # 加粗线条
+    pltt.legend()
+    pltt.grid(True)  # 添加网格线
+    text_content = "Total Real Time: {:.2f} s\n".format(time_end - time_start)
+    pltt.figtext(
+    1.02, 0.5,  # (x, y) 位置，1.02 表示超出 figure 右侧
+    text_content,
+    fontsize=20, color='black',
+    verticalalignment='center', horizontalalignment='left',
+    bbox=dict(facecolor='white', alpha=0.7, edgecolor='black')  # 添加背景框
+)
+
+    pltt.savefig(f'{picfile}_npu.jpg', dpi=300,bbox_inches='tight')  # dpi=300 提高图片清晰度 bbox_inches 使得图像不会裁剪文本
+
+
+    pltt.figure(figsize=(24, 18))
+    pltt.title("CPU Load", fontsize=30)
+    pltt.ylim(0, 100)
+    pltt.xlabel("Time (seconds)", fontsize=26)
+    pltt.ylabel("Load (%)", fontsize=26)
+    x_values = np.linspace(time_start, time_end, len(cpu_data))-time_start
+    for k in range(len(cpu_data[0])):
+        pltt.plot(x_values,[s[k] for s in cpu_data], label=f"Core {k}", linewidth=3)
+    pltt.legend()
+    pltt.grid(True)
+    text_content = "Total Real Time: {:.2f} s\n".format(time_end- time_start)
+    pltt.figtext(
+    1.02, 0.5,  # (x, y) 位置，1.02 表示超出 figure 右侧
+    text_content,
+    fontsize=20, color='black',
+    verticalalignment='center', horizontalalignment='left',
+    bbox=dict(facecolor='white', alpha=0.7, edgecolor='black')  # 添加背景框
+)
+    pltt.savefig(f'{picfile}_cpu.jpg', dpi=300,bbox_inches='tight')
+
+
+    pltt.figure(figsize=(24, 18))
+    pltt.title("Thermals", fontsize=30)
+    pltt.ylim(0, 150)
+    pltt.xlabel("Time (seconds)", fontsize=26)
+    pltt.ylabel("Temperature (°C)", fontsize=26)
+    x_values = np.linspace(time_start, time_end, len(temp_data))-time_start
+    for k in range(len(temp_data[0])):
+        pltt.plot(x_values,[s[k] for s in temp_data], label=labels_data[k], linewidth=3)
+    pltt.legend()
+    pltt.grid(True)
+    text_content = "Total Real Time: {:.2f} s\n".format(time_end - time_start)
+    pltt.figtext(
+    1.02, 0.5,  # (x, y) 位置，1.02 表示超出 figure 右侧
+    text_content,
+    fontsize=20, color='black',
+    verticalalignment='center', horizontalalignment='left',
+    bbox=dict(facecolor='white', alpha=0.7, edgecolor='black')  # 添加背景框
+)
+    pltt.savefig(f'{picfile}_thermals.jpg', dpi=300,bbox_inches='tight')
+
+
+    pltt.figure(figsize=(24, 18))
+    pltt.title("Memory-swap", fontsize=30)
+    pltt.ylim(0, 100)
+    pltt.xlabel("Time (seconds)", fontsize=26)
+    pltt.ylabel("Load (%)", fontsize=26)
+    x_values = np.linspace(time_start, time_end, len(mem_free_data))-time_start
+    memory_free_label=["memory","swap"]
+    for k in range(len(mem_free_data[0])):
+        pltt.plot(x_values,[s[k] for s in mem_free_data], label=memory_free_label[k], linewidth=3)
+    pltt.legend()
+    pltt.grid(True)
+    text_content = "Total Real Time: {:.2f} s\n".format(time_end - time_start)
+    pltt.figtext(
+    1.02, 0.5,  # (x, y) 位置，1.02 表示超出 figure 右侧
+    text_content,
+    fontsize=20, color='black',
+    verticalalignment='center', horizontalalignment='left',
+    bbox=dict(facecolor='white', alpha=0.7, edgecolor='black')  # 添加背景框
+)
+    pltt.savefig(f'{picfile}_memoryswap.jpg', dpi=300,bbox_inches='tight')
+
+
+
+    #  清空数据以便下次记录
+    npu_data.clear()
+    cpu_data.clear()
+    temp_data.clear()
+    labels_data.clear()
+    mem_free_data.clear()
+
+
+# 快速删除文件
+def fast_remove(path):
+    try:
+        os.unlink(path)  # 直接删除
+    except FileNotFoundError:
+        pass
+    except PermissionError:
+        print(f"Warning: No permission to delete {path}")
+
+# 快速检查是否存在
+def fast_exists(file_name):
+    return any(entry.name == file_name for entry in os.scandir("/tmp/"))
+
+
+
+
+if __name__ == "__main__":
+
+    start=time.time()
+    #耗时
+    if fast_exists("start"):
+        fast_remove("/tmp/start")
+
+    if fast_exists("stop"):
+        fast_remove("/tmp/stop")
+        
+    print(f"time1:{(time.time()-start)}")
+    print("11111111111111111111111111")
+    parser = optparse.OptionParser("Show different NPU/CPU stats")
+    parser.add_option(
+        "-n",
+        "--npu-only",
+        dest="npuonly",
+        default=False,
+        help="Only show the NPU load",
+        action="store_true",
+    )
+    parser.add_option(
+        "-b",
+        "--npu-bars",
+        dest="npubars",
+        default=False,
+        action="store_true",
+        help="Show the NPU with bars instead of lines",
+    )
+    opts, _ = parser.parse_args()
+    
+    start=time.time()
+    
+    rkload = readload()
+    if rkload is None or len(rkload) == 0:
+        print("Cannot read anything in /sys/kernel/debug/rknpu/load. Run with `sudo`")
+        sys.exit(-2)
+
+
+    rkver = readkver()
+
+    kernel_version=readkernel()
+
+    #耗时
+    libver=readlibver2()
+    pts = parseload(rkload)
+    n_pts = len(pts)
+    
+    print("22222222222222222222")
+    print(f"time2:{(time.time()-start)}")
+    
+
+    MAX_SAMPLES = 100
+    samples = []
+
+    input_queue = queue.Queue()
+    input_thread = threading.Thread(target=_kget_thread, args=(input_queue,))
+    input_thread.daemon = True
+    input_thread.start()
+    
+
+    
+    while True:
+        # 检测 `/tmp/model_loaded`
+        if os.path.exists("/tmp/start"):
+            print("Starting data recording...")
+            record_data = True
+            os.remove("/tmp/start")  # 删除标志文件
+            time_start=time.time()
+
+        loads = parseload(readload())
+        
+        # print('loads',loads)
+        samples.append(loads)
+        if len(samples) > MAX_SAMPLES:
+            samples.pop(0)
+
+        plt.clf()
+
+        if opts.npuonly:
+            if opts.npubars:
+                plot_npu_bars(plt, n_pts, samples)
+            else:
+                plot_npu_lines(plt, n_pts, samples)
+
+        else:
+            plt.subplots(2, 2)
+            if opts.npubars:
+                plot_npu_bars(plt.subplot(1, 1), n_pts, samples)
+            else:
+                plot_npu_lines(plt.subplot(1, 1), n_pts, samples)
+            # print(n_pts,samples,len(samples))
+            # CPU Cores
+            cpus = psutil.cpu_percent(percpu=True)
+            # print(cpus,len(cpus))
+            plt.subplot(1, 2).title("CPU Load per core")
+            plt.subplot(1, 2).ylim(lower=0, upper=100)
+            plt.subplot(1, 2).bar([str(i) for i in range(len(cpus))], cpus, width=1 / 5)
+            [
+                plt.subplot(1, 2).text(
+                    f"{cpus[i]}%", x=i + 1, y=cpus[i] + 1.5, alignment="center"
+                )
+                for i in range(len(cpus))
+            ]
+
+            # Thermals
+            labels, temps, tops = tempbars()
+            # print('labels:',labels,len(labels))
+            # print('temps',temps,len(temps))
+
+            plt.subplot(2, 1).title("Thermals")
+            plt.subplot(2, 1).stacked_bar(
+                labels, [temps, tops], orientation="h", width=1 / 5
+            )
+            [
+                plt.subplot(2, 1).text(f"{temps[i]}ºC", x=1, y=i + 1)
+                for i in range(len(temps))
+            ]
+            plt.subplot(2, 2).subplots(2, 1)
+
+            # Memory
+            mem = psutil.virtual_memory().percent
+            swp = psutil.swap_memory().percent
+
+            # print(mem)
+            # print(swp)
+            plt.subplot(2, 2).subplot(1, 1).title("Memory")
+            plt.subplot(2, 2).subplot(1, 1).stacked_bar(
+                ["Memory", "Swap"],
+                [[mem, swp], [100 - mem, 100 - swp]],
+                orientation="h",
+                width=1 / 5,
+            )
+
+            # Versions
+            plt.subplot(2, 2).subplot(2, 1).indicator(
+                f"librkllmrt.so ,there are {len(libver)} in ~/\n {os.path.dirname(libver[-1])}\nKernel mod: {kernel_version} RKNPU version:{rkver}"
+            )
+            if record_data:
+                npu_data.append(loads)
+                # print(len(npu_data))
+                cpu_data.append(cpus)
+                # print(len(cpu_data))
+                temp_data.append(temps)
+                # print(len(temp_data))
+                labels_data=labels
+                mem_free_data.append([mem,swp])
+
+
+
+
+
+        plt.show()
+        plt.sleep(1)
+        # 随时监控按键输入，以随时退出程序
+        if not input_queue.empty():
+            k = input_queue.get()
+            print('input_queue get:',k)
+            if k == "Q" or k == "q" or k == "esc":
+                sys.exit(0)
+
+        if os.path.exists("/tmp/stop"):
+            time_end=time.time()
+            print("Stop recording, Saving data...")
+            record_data = False
+            if time_start:
+            	save_to_csv(time_start,time_end)
+            os.remove("/tmp/stop")
+

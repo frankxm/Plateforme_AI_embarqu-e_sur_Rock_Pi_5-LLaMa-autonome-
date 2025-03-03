@@ -1,0 +1,402 @@
+[
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nFind all c in Z_3 such that Z_3[x]/(x^2 + c) is a field.\nA: 0\nB: 1\nC: 2\nD: 3\n",
+    "target": "B:1"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nStatement 1 | If aH is an element of a factor group, then |aH| divides |a|. Statement 2 | If H and K are subgroups of G then HK is a subgroup of G.\nA: True, True\nB: False, False\nC: True, False\nD: False, True\n",
+    "target": "B:False, False"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nStatement 1 | Every element of a group generates a cyclic subgroup of the group. Statement 2 | The symmetric group S_10 has 10 elements.\nA: True, True\nB: False, False\nC: True, False\nD: False, True\n",
+    "target": "C:True, False"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nStatement 1| Every function from a finite set onto itself must be one to one. Statement 2 | Every subgroup of an abelian group is abelian.\nA: True, True\nB: False, False\nC: True, False\nD: False, True\n",
+    "target": "A:True, True"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nFind the characteristic of the ring 2Z.\nA: 0\nB: 3\nC: 12\nD: 30\n",
+    "target": "A:0"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhat is the embryological origin of the hyoid bone?\nA: The first pharyngeal arch\nB: The first and second pharyngeal arches\nC: The second pharyngeal arch\nD: The second and third pharyngeal arches\n",
+    "target": "D:The second and third pharyngeal arches"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of these branches of the trigeminal nerve contain somatic motor processes?\nA: The supraorbital nerve\nB: The infraorbital nerve\nC: The mental nerve\nD: None of the above\n",
+    "target": "D:None of the above"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThe pleura\nA: have no sensory innervation.\nB: are separated by a 2 mm space.\nC: extend into the neck.\nD: are composed of respiratory epithelium.\n",
+    "target": "C:extend into the neck."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nIn Angle's Class II Div 2 occlusion there is\nA: excess overbite of the upper lateral incisors.\nB: negative overjet of the upper central incisors.\nC: excess overjet of the upper lateral incisors.\nD: excess overjet of the upper central incisors.\n",
+    "target": "C:excess overjet of the upper lateral incisors."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following is the body cavity that contains the pituitary gland?\nA: Abdominal\nB: Cranial\nC: Pleural\nD: Spinal\n",
+    "target": "B:Cranial"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nYou are pushing a truck along a road. Would it be easier to accelerate this truck on Mars? Why? (Assume there is no friction)\nA: It would be harder since the truck is heavier on Mars.\nB: It would be easier since the truck is lighter on Mars.\nC: It would be harder since the truck is lighter on Mars.\nD: It would be the same no matter where you are.\n",
+    "target": "D:It would be the same no matter where you are."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhere do most short-period comets come from and how do we know?\nA: The Kuiper belt; short period comets tend to be in the plane of the solar system just like the Kuiper belt.\nB: The Kuiper belt; short period comets tend to come from random directions indicating a spherical distribution of comets called the Kuiper belt.\nC: The asteroid belt; short period comets have orbital periods similar to asteroids like Vesta and are found in the plane of the solar system just like the asteroid belt.\nD: The Oort cloud; short period comets tend to be in the plane of the solar system just like the Oort cloud.\n",
+    "target": "A:The Kuiper belt; short period comets tend to be in the plane of the solar system just like the Kuiper belt."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nSay the pupil of your eye has a diameter of 5 mm and you have a telescope with an aperture of 50 cm. How much more light can the telescope gather than your eye?\nA: 10000 times more\nB: 100 times more\nC: 1000 times more\nD: 10 times more\n",
+    "target": "A:10000 times more"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhy isn't there a planet where the asteroid belt is located?\nA: A planet once formed here but it was broken apart by a catastrophic collision.\nB: There was not enough material in this part of the solar nebula to form a planet.\nC: There was too much rocky material to form a terrestrial planet but not enough gaseous material to form a jovian planet.\nD: Resonance with Jupiter prevented material from collecting together to form a planet.\n",
+    "target": "D:Resonance with Jupiter prevented material from collecting together to form a planet."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhy is Mars red?\nA: Because the surface is covered with heavily oxidized (\"rusted\") minerals.\nB: Because the atmosphere scatters more light at bluer wavelengths transmitting mostly red light.\nC: Because Mars is covered with ancient lava flows which are red in color.\nD: Because flowing water on Mars's surface altered the surface minerals several billion years ago.\n",
+    "target": "A:Because the surface is covered with heavily oxidized (\"rusted\") minerals."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nBeyond the business case for engaging in CSR there are a number of moral arguments relating to: negative _______, the _______that corporations possess and the ________ of business and society.\nA: Externalities, Power, Independence\nB: Publicity, Insubstantial resources, Mutual dependence\nC: Publicity, Power, Independence\nD: Externalities, Power, Mutual dependence\n",
+    "target": "D:Externalities, Power, Mutual dependence"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\n_______ is the direct attempt to formally or informally manage ethical issues or problems, through specific policies, practices and programmes.\nA: Corporate social responsibility\nB: Business ethics management\nC: Sustainability\nD: Environmental management\n",
+    "target": "B:Business ethics management"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nTo ensure the independence of the non-executive board members, they are a number of steps which can be taken, which include non-executives being drawn from _______ the company, being appointed for a _________ time period as well as being appointed _________.\nA: Outside, Limited, Independently\nB: Inside, Limited, Intermittently\nC: Outside, Unlimited, Intermittently\nD: Inside, Unlimited, Independently\n",
+    "target": "A:Outside, Limited, Independently"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThree contrasting tactics that CSO's can engage in to meet their aims are ________ which typically involves research and communication, ________, which may involve physically attacking a company's operations or ________, often involving some form of _______.\nA: Non-violent direct action, Violent direct action, Indirect action, Boycott\nB: Indirect action, Instrumental action, Non-violent direct action, Information campaign\nC: Indirect action, Violent direct action, Non-violent direct-action Boycott\nD: Non-violent direct action, Instrumental action, Indirect action, Information campaign\n",
+    "target": "C:Indirect action, Violent direct action, Non-violent direct-action Boycott"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nIn contrast to _______, _______ aim to reward favourable behaviour by companies. The success of such campaigns have been heightened through the use of ___________, which allow campaigns to facilitate the company in achieving _________ .\nA: Buycotts, Boycotts, Blockchain technology, Charitable donations\nB: Buycotts, Boycotts, Digital technology, Increased Sales\nC: Boycotts, Buyalls, Blockchain technology, Charitable donations\nD: Boycotts, Buycotts, Digital technology, Increased Sales\n",
+    "target": "D:Boycotts, Buycotts, Digital technology, Increased Sales"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThe energy for all forms of muscle contraction is provided by:\nA: ATP.\nB: ADP.\nC: phosphocreatine.\nD: oxidative phosphorylation.\n",
+    "target": "A:ATP."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhat is the difference between a male and a female catheter?\nA: Male and female catheters are different colours.\nB: Male catheters are longer than female catheters.\nC: Male catheters are bigger than female catheters.\nD: Female catheters are longer than male catheters.\n",
+    "target": "B:Male catheters are longer than female catheters."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nIn the assessment of the hand function which of the following is true?\nA: Abduction of the thumb is supplied by spinal root T2\nB: Opposition of the thumb by opponens policis is supplied by spinal root T1\nC: Finger adduction is supplied by the median nerve\nD: Finger abduction is mediated by the palmar interossei\n",
+    "target": "B:Opposition of the thumb by opponens policis is supplied by spinal root T1"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nHow many attempts should you make to cannulate a patient before passing the job on to a senior colleague, according to the medical knowledge of 2020?\nA: 4\nB: 3\nC: 2\nD: 1\n",
+    "target": "C:2"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nGlycolysis is the name given to the pathway involving the conversion of:\nA: glycogen to glucose-1-phosphate.\nB: glycogen or glucose to fructose.\nC: glycogen or glucose to pyruvate or lactate.\nD: glycogen or glucose to pyruvate or acetyl CoA.\n",
+    "target": "C:glycogen or glucose to pyruvate or lactate."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following represents an accurate statement concerning arthropods?\nA: They possess an exoskeleton composed primarily of peptidoglycan.\nB: They possess an open circulatory system with a dorsal heart.\nC: They are members of a biologically unsuccessful phylum incapable of exploiting diverse habitats and nutrition sources.\nD: They lack paired, jointed appendages.\n",
+    "target": "B:They possess an open circulatory system with a dorsal heart."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nIn a given population, 1 out of every 400 people has a cancer caused by a completely recessive allele, b. Assuming the population is in Hardy-Weinberg equilibrium, which of the following is the expected proportion of individuals who carry the b allele but are not expected to develop the cancer?\nA: 1/400\nB: 19/400\nC: 20/400\nD: 38/400\n",
+    "target": "D:38/400"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThe presence of homologous structures in two different organisms, such as the humerus in the front limb of a human and a bird, indicates that\nA: the human and bird are polyphyletic species\nB: a human's and bird's evolution is convergent\nC: the human and bird belong to a clade\nD: the human and bird developed by analogy\n",
+    "target": "C:the human and bird belong to a clade"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nAccording to the pressure-flow model of movement of phloem contents, photosynthate movement from source to sink is driven by\nA: an ATP-dependent pressure-flow pump\nB: a water-pressure potential gradient\nC: transpiration\nD: apoplastic diffusion\n",
+    "target": "B:a water-pressure potential gradient"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following contain DNA sequences required for the segregation of chromosomes in mitosis and meiosis?\nA: Telomeres\nB: Centromeres\nC: Nucleosomes\nD: Spliceosomes\n",
+    "target": "B:Centromeres"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following statements about the lanthanide elements is NOT true?\nA: The most common oxidation state for the lanthanide elements is +3.\nB: Lanthanide complexes often have high coordination numbers (> 6).\nC: All of the lanthanide elements react with aqueous acid to liberate hydrogen.\nD: The atomic radii of the lanthanide elements increase across the period from La to Lu.\n",
+    "target": "D:The atomic radii of the lanthanide elements increase across the period from La to Lu."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA 0.217 g sample of HgO (molar mass = 217 g) reacts with excess iodide ions according to the reaction shown above. Titration of the resulting solution requires how many mL of 0.10 M HCl to reach equivalence point?\nA: 1.0 mL\nB: 10 mL\nC: 20 mL\nD: 50 mL\n",
+    "target": "C:20 mL"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nPredict the number of lines in the EPR spectrum of a solution of 13C-labelled methyl radical (13CH3•), assuming the lines do not overlap.\nA: 4\nB: 3\nC: 6\nD: 24\n",
+    "target": "A:4"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\n3 Cl−(aq) + 4 CrO_4^2−(aq) + 23 H+(aq) → 3 HClO2(aq) + 4 Cr3+(aq) + 10 H2O(l). In the reaction shown above, Cl−(aq) behaves as\nA: an acid\nB: a base\nC: a catalyst\nD: a reducing agent\n",
+    "target": "D:a reducing agent"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following lists the hydrides of group-14 elements in order of thermal stability, from lowest to highest?\nA: PbH4 < SnH4 < GeH4 < SiH4 < CH4\nB: PbH4 < SnH4 < CH4 < GeH4 < SiH4\nC: CH4 < SiH4 < GeH4 < SnH4 < PbH4\nD: CH4 < PbH4 < GeH4 < SnH4 < SiH4\n",
+    "target": "A:PbH4 < SnH4 < GeH4 < SiH4 < CH4"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following regular expressions is equivalent to (describes the same set of strings as) (a* + b)*(c + d)?\nA: a*(c + d)+ b(c + d)\nB: a*(c + d)* + b(c + d)*\nC: a*(c + d)+ b*(c + d)\nD: (a + b)*c +(a + b)*d\n",
+    "target": "D:(a + b)*c +(a + b)*d"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA certain pipelined RISC machine has 8 general-purpose registers R0, R1, . . . , R7 and supports the following operations.\nADD Rs1, Rs2, Rd Add Rs1 to Rs2 and put the sum in Rd\nMUL Rs1, Rs2, Rd Multiply Rs1 by Rs2 and put the product in Rd\nAn operation normally takes one cycle; however, an operation takes two cycles if it produces a result required by the immediately following operation in an operation sequence. Consider the expression AB + ABC + BC, where variables A, B, C are located in registers R0, R1, R2. If the contents of these three registers must not be modified, what is the minimum number of clock cycles required for an operation sequence that computes the value of AB + ABC + BC?\nA: 5\nB: 6\nC: 7\nD: 8\n",
+    "target": "B:6"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThe Singleton design pattern is used to guarantee that only a single instance of a class may be instantiated. Which of the following is (are) true of this design pattern?\nI. The Singleton class has a static factory method to provide its instance.\nII. The Singleton class can be a subclass of another class.\nIII. The Singleton class has a private constructor.\nA: I only\nB: II only\nC: III only\nD: I, II, and III\n",
+    "target": "D:I, II, and III"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA compiler generates code for the following assignment statement.\nG := (A + B) * C - (D + E) * F\nThe target machine has a single accumulator and a single-address instruction set consisting of instructions load, store, add, subtract, and multiply. For the arithmetic operations, the left operand is taken from the accumulator and the result appears in the accumulator. The smallest possible number of instructions in the resulting code is\nA: 5\nB: 6\nC: 7\nD: 9\n",
+    "target": "D:9"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nConsider a computer design in which multiple processors, each with a private cache memory, share global memory using a single bus. This bus is the critical system resource. Each processor can execute one instruction every 500 nanoseconds as long as memory references are satisfied by its local cache. When a cache miss occurs, the processor is delayed for an additional 2,000 nanoseconds. During half of this additional delay, the bus is dedicated to serving the cache miss. During the other half, the processor cannot continue, but the bus is free to service requests from other processors. On average, each instruction requires 2 memory references. On average, cache misses occur on 1 percent of references. What proportion of the capacity of the bus would a single processor consume, ignoring delays due to competition from other processors?\nA: 1/50\nB: 1/27\nC: 1/25\nD: 2/27\n",
+    "target": "B:1/27"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nLet V be the set of all real polynomials p(x). Let transformations T, S be defined on V by T:p(x) -> xp(x) and S:p(x) -> p'(x) = d/dx p(x), and interpret (ST)(p(x)) as S(T(p(x))). Which of the following is true?\nA: ST = 0\nB: ST = T\nC: ST = TS\nD: ST - TS is the identity map of V onto itself.\n",
+    "target": "D:ST - TS is the identity map of V onto itself."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA tank initially contains a salt solution of 3 grams of salt dissolved in 100 liters of water. A salt solution containing 0.02 grams of salt per liter of water is sprayed into the tank at a rate of 4 liters per minute. The sprayed solution is continually mixed with the salt solution in the tank, and the mixture flows out of the tank at a rate of 4 liters per minute. If the mixing is instantaneous, how many grams of salt are in the tank after 100 minutes have elapsed?\nA: 2\nB: 2 - e^-2\nC: 2 + e^-2\nD: 2 + e^-4\n",
+    "target": "D:2 + e^-4"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nLet A be a real 2x2 matrix. Which of the following statements must be true?\nI. All of the entries of A^2 are nonnegative.\nII. The determinant of A^2 is nonnegative.\nIII. If A has two distinct eigenvalues, then A^2 has two distinct eigenvalues.\nA: I only\nB: II only\nC: III only\nD: II and III only\n",
+    "target": "B:II only"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nSuppose that f(1 + x) = f(x) for all real x. If f is a polynomial and f(5) = 11, then f(15/2)\nA: -11\nB: 0\nC: 11\nD: 33/2\n",
+    "target": "C:11"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nLet A be the set of all ordered pairs of integers (m, n) such that 7m + 12n = 22. What is the greatest negative number in the set B = {m + n : (m, n) \\in A}?\nA: -5\nB: -4\nC: -3\nD: -2\n",
+    "target": "B:-4"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nGlucose is transported into the muscle cell:\nA: via protein transporters called GLUT4.\nB: only in the presence of insulin.\nC: via hexokinase.\nD: via monocarbylic acid transporters.\n",
+    "target": "A:via protein transporters called GLUT4."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following is not a true statement?\nA: Muscle glycogen is broken down enzymatically to glucose-1-phosphate\nB: Elite endurance runners have a high proportion of Type I fibres in their leg muscles\nC: Liver glycogen is important in the maintenance of the blood glucose concentration\nD: Insulin promotes glucose uptake by all tissues in the body\n",
+    "target": "D:Insulin promotes glucose uptake by all tissues in the body"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nIn a genetic test of a newborn, a rare genetic disorder is found that has X-linked recessive transmission. Which of the following statements is likely true regarding the pedigree of this disorder?\nA: All descendants on the maternal side will have the disorder.\nB: Females will be approximately twice as affected as males in this family.\nC: All daughters of an affected male will be affected.\nD: There will be equal distribution of males and females affected.\n",
+    "target": "C:All daughters of an affected male will be affected."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA high school science teacher fills a 1 liter bottle with pure nitrogen and seals the lid. The pressure is 1.70 atm, and the room temperature is 25°C. Which two variables will both increase the pressure of the system, if all other variables are held constant?\nA: Increasing temperature, increasing moles of gas\nB: Increasing temperature, increasing volume\nC: Decreasing volume, decreasing temperature\nD: Decreasing moles of gas, increasing volume\n",
+    "target": "A:Increasing temperature, increasing moles of gas"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nAn expected side effect of creatine supplementation is:\nA: muscle weakness.\nB: gain in body mass.\nC: muscle cramps.\nD: loss of electrolytes.\n",
+    "target": "B:gain in body mass."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA refracting telescope consists of two converging lenses separated by 100 cm. The eye-piece lens has a focal length of 20 cm. The angular magnification of the telescope is\nA: 4\nB: 5\nC: 6\nD: 20\n",
+    "target": "A:4"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nFor which of the following thermodynamic processes is the increase in the internal energy of an ideal gas equal to the heat added to the gas?\nA: Constant temperature\nB: Constant volume\nC: Constant pressure\nD: Adiabatic\n",
+    "target": "B:Constant volume"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nOne end of a Nichrome wire of length 2L and cross-sectional area A is attached to an end of another Nichrome wire of length L and cross- sectional area 2A. If the free end of the longer wire is at an electric potential of 8.0 volts, and the free end of the shorter wire is at an electric potential of 1.0 volt, the potential at the junction of the two wires is most nearly equal to\nA: 2.4 V\nB: 3.3 V\nC: 4.5 V\nD: 5.7 V\n",
+    "target": "A:2.4 V"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA refracting telescope consists of two converging lenses separated by 100 cm. The eye-piece lens has a focal length of 20 cm. The angular magnification of the telescope is\nA: 4\nB: 5\nC: 6\nD: 20\n",
+    "target": "A:4"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThe muon decays with a characteristic lifetime of about 10^-6 second into an electron, a muon neutrino, and an electron antineutrino. The muon is forbidden from decaying into an electron and just a single neutrino by the law of conservation of\nA: charge\nB: mass\nC: energy and momentum\nD: lepton number\n",
+    "target": "D:lepton number"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nSHA-1 has a message digest of\nA: 160 bits\nB: 512 bits\nC: 628 bits\nD: 820 bits\n",
+    "target": "A:160 bits"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\n_____________ can modify data on your system – so that your system doesn’t run correctly or you can no longer access specific data, or it may even ask for ransom in order to give your access.\nA: IM – Trojans\nB: Backdoor Trojans\nC: Trojan-Downloader\nD: Ransom Trojan\n",
+    "target": "D:Ransom Trojan"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhat is ethical hacking?\nA: \"Hacking\" ethics so they justify unintended selfish behavior\nB: Hacking systems (e.g., during penetration testing) to expose vulnerabilities so they can be fixed, rather than exploited\nC: Hacking into systems run by those whose ethics you disagree with\nD: A slang term for rapid software development, e.g., as part of hackathons\n",
+    "target": "B:Hacking systems (e.g., during penetration testing) to expose vulnerabilities so they can be fixed, rather than exploited"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nExploitation of the Heartbleed bug permits\nA: overwriting cryptographic keys in memory\nB: a kind of code injection\nC: a read outside bounds of a buffer\nD: a format string attack\n",
+    "target": "C:a read outside bounds of a buffer"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThe ____________ is anything which your search engine cannot search.\nA: Haunted web\nB: World Wide Web\nC: Surface web\nD: Deep Web\n",
+    "target": "D:Deep Web"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nCompared with the mass of a uranium atom undergoing fission, the combined masses of the products after fission are\nA: less\nB: more\nC: the same\nD: zero\n",
+    "target": "A:less"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThings that are equivalent according to the equivalence principle are\nA: space and time.\nB: a traveling twin and a stay-at-home twin.\nC: gravity and acceleration.\nD: mass and energy.\n",
+    "target": "C:gravity and acceleration."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nColors in a soap bubble result from light\nA: converted to a different frequency\nB: deflection\nC: interference\nD: polarization\n",
+    "target": "C:interference"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA model airplane flies slower when flying into the wind and faster with wind at its back. When launched at right angles to the wind a cross wind its groundspeed compared with flying in still air is\nA: the same\nB: greater\nC: less\nD: either greater or less depending on wind speed\n",
+    "target": "B:greater"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of these three elements has the most mass per nucleon?\nA: Hydrogen\nB: Iron\nC: Uranium\nD: Same in each\n",
+    "target": "A:Hydrogen"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nFor a stationary autoregressive process, shocks will\nA: Eventually die away\nB: Persist indefinitely\nC: Grow exponentially\nD: Never occur\n",
+    "target": "A:Eventually die away"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nConsider the following AR(1) model with the disturbances having zero mean and unit variance\n\nyt = 0.2 + 0.4 yt-1 + ut\n\nThe (unconditional) mean of y will be given by\nA: 0.2\nB: 0.4\nC: 0.5\nD: 0.33\n",
+    "target": "D:0.33"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nSuppose that a test statistic has associated with it a p-value of 0.08. Which one of the following statements is true?\n\n(i) If the size of the test were exactly 8%, we would be indifferent between rejecting and not rejecting the null hypothesis\n\n(ii) The null would be rejected if a 10% size of test were used\n\n(iii) The null would not be rejected if a 1% size of test were used\n\n(iv) The null would be rejected if a 5% size of test were used.\nA: (ii) and (iv) only\nB: (i) and (iii) only\nC: (i), (ii), and (iii) only\nD: (i), (ii), (iii), and (iv)\n",
+    "target": "C:(i), (ii), and (iii) only"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhat would be then consequences for the OLS estimator if heteroscedasticity is present in a regression model but ignored?\nA: It will be biased\nB: It will be inconsistent\nC: It will be inefficient\nD: All of (a), (b) and (c) will be true.\n",
+    "target": "C:It will be inefficient"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nSuppose now that a researcher wishes to use information criteria to determine the optimal lag length for a VAR. 500 observations are available for the bi-variate VAR, and the values of the determinant of the variance-covariance matrix of residuals are 0.0336, 0.0169, 0.0084, and 0.0062 for 1, 2, 3, and 4 lags respectively. What is the optimal model order according to Akaike's information criterion?\nA: 1 lag\nB: 2 lags\nC: 3 lags\nD: 4 lags\n",
+    "target": "C:3 lags"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nIn an SR latch built from NOR gates, which condition is not allowed\nA: S=0, R=0\nB: S=0, R=1\nC: S=1, R=0\nD: S=1, R=1\n",
+    "target": "D:S=1, R=1"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nIn a 2 pole lap winding dc machine , the resistance of one conductor is 2Ω and total number of conductors is 100. Find the total resistance\nA: 200Ω\nB: 100Ω\nC: 50Ω\nD: 10Ω\n",
+    "target": "C:50Ω"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThe coil of a moving coil meter has 100 turns, is 40 mm long and 30 mm wide. The control torque is 240*10-6 N-m on full scale. If magnetic flux density is 1Wb/m2 range of meter is\nA: 1 mA.\nB: 2 mA.\nC: 3 mA.\nD: 4 mA.\n",
+    "target": "B:2 mA."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nTwo long parallel conductors carry 100 A. If the conductors are separated by 20 mm, the force per meter of length of each conductor will be\nA: 100 N.\nB: 0.1 N.\nC: 1 N.\nD: 0.01 N.\n",
+    "target": "B:0.1 N."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA point pole has a strength of 4π * 10^-4 weber. The force in newtons on a point pole of 4π * 1.5 * 10^-4 weber placed at a distance of 10 cm from it will be\nA: 15 N.\nB: 20 N.\nC: 7.5 N.\nD: 3.75 N.\n",
+    "target": "A:15 N."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nThe population of the city where Michelle was born is 145,826. What is the value of the 5 in the number 145,826?\nA: 5 thousands\nB: 5 hundreds\nC: 5 tens\nD: 5 ones\n",
+    "target": "A:5 thousands"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nOlivia used the rule \"Add 11\" to create the number pattern shown below. 10, 21, 32, 43, 54 Which statement about the number pattern is true?\nA: The 10th number in the pattern will be an even number.\nB: The number pattern will never have two even numbers next to each other.\nC: The next two numbers in the pattern will be an even number then an odd number.\nD: If the number pattern started with an odd number then the pattern would have only odd numbers in it.\n",
+    "target": "B:The number pattern will never have two even numbers next to each other."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA total of 30 players will play basketball at a park. There will be exactly 5 players on each team. Which statement correctly explains how to find the number of teams needed?\nA: Add 5 to 30 to find 35 teams.\nB: Divide 30 by 5 to find 6 teams.\nC: Multiply 30 and 5 to find 150 teams.\nD: Subtract 5 from 30 to find 25 teams.\n",
+    "target": "B:Divide 30 by 5 to find 6 teams."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA store sells 107 different colors of paint. They have 25 cans of each color in storage. The number of cans of paint the store has in storage can be found using the expression below. 107 × 25. How many cans of paint does the store have in storage?\nA: 749\nB: 2,675\nC: 2,945\nD: 4,250\n",
+    "target": "B:2,675"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich expression is equivalent to 5 x 9?\nA: (5 x 4) x (6 x 5)\nB: (5 x 5) + (5 x 4)\nC: (5 x 5) + (5 x 9)\nD: (5 x 9) x (6 x 9)\n",
+    "target": "B:(5 x 5) + (5 x 4)"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\n Select the best translation into predicate logic: No people drive on Mars.\nA: ~Pd\nB: (∀x)(Px ∨ ~Dx)\nC: (∀x)(Px ⊃ ~Dx)\nD: ~Dp\n",
+    "target": "C:(∀x)(Px ⊃ ~Dx)"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nSelect the best translation into predicate logic.George borrows Hector's lawnmower. (g: George; h: Hector; l: Hector's lawnmower; Bxyx: x borrows y from z)\nA: Blgh\nB: Bhlg\nC: Bglh\nD: Bghl\n",
+    "target": "C:Bglh"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\n Select the best English interpretation of the given arguments in predicate logic.\nDm\n(∀x)(Wx ⊃ ~Dx)\n(∀x)Wx ∨ Ag\t/ (∃x)Ax\nA: Marina is a dancer. Some weaklings are not dancers. Either everything is a weakling or Georgia plays volleyball. So something plays volleyball.\nB: Marina is a dancer. No weakling is a dancer. Everything is either a weakling or plays volleyball. So something plays volleyball.\nC: Marina is a dancer. Some weaklings are not dancers. Everything is either a weakling or plays volleyball. So something plays volleyball.\nD: Marina is a dancer. No weakling is a dancer. Either everything is a weakling or Georgia plays volleyball. So something plays volleyball.\n",
+    "target": "D:Marina is a dancer. No weakling is a dancer. Either everything is a weakling or Georgia plays volleyball. So something plays volleyball."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\n Construct a complete truth table for the following pairs of propositions. Then, using the truth tables, determine whether the statements are logically equivalent or contradictory. If neither, determine whether they are consistent or inconsistent. Justify your answers.\nE ⊃ (F · E) and ~E · F\nA: Logically equivalent\nB: Contradictory\nC: Neither logically equivalent nor contradictory, but consistent\nD: Inconsistent\n",
+    "target": "C:Neither logically equivalent nor contradictory, but consistent"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\n Which of the given formulas of PL is the best symbolization of the following sentence?\nTurtles live long lives and are happy creatures, unless they are injured.\nA: (L • H) ≡ I\nB: (L • H) ∨ I\nC: L • (H ∨ I)\nD: L • (H ⊃ R)\n",
+    "target": "B:(L • H) ∨ I"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following pairs of statements are both true (as of 2019)?\nA: People tend to be optimistic about their own future and the future of their nation or the world.\nB: People tend to be optimistic about their own future but pessimistic about the future of their nation or the world.\nC: People tend to be pessimistic about their own future but optimistic about the future of their nation or the world.\nD: People tend to be pessimistic about their own future and the future of their nation or the world.\n",
+    "target": "B:People tend to be optimistic about their own future but pessimistic about the future of their nation or the world."
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nAs of 2019, about what percentage of Americans agree that the state is run for the benefit of all the people?\nA: 31%\nB: 46%\nC: 61%\nD: 76%\n",
+    "target": "B:46%"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nAs of 2015, since 1990 forests have ____ in Europe and have ____ in Africa and the Americas.\nA: increased, increased\nB: increased, decreased\nC: decreased, increased\nD: decreased, decreased\n",
+    "target": "B:increased, decreased"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nAs of 2019, about what percentage of Russians say it is very important to have free media in our country without government/state censorship?\nA: 38%\nB: 53%\nC: 68%\nD: 83%\n",
+    "target": "A:38%"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nAs of 2017, how many of the world’s 1-year-old children today have been vaccinated against some disease? *\nA: 80%\nB: 60%\nC: 40%\nD: 20%\n",
+    "target": "A:80%"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following is not a way to form recombinant DNA?\nA: Translation\nB: Conjugation\nC: Specialized transduction\nD: Transformation\n",
+    "target": "A:Translation"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA mutation in a bacterial enzyme changed a previously polar amino acid into a nonpolar amino acid. This amino acid was located at a site distant from the enzyme’s active site. How might this mutation alter the enzyme’s substrate specificity?\nA: By changing the enzyme’s pH optimum\nB: By changing the enzyme’s location in the cell\nC: By changing the shape of the protein\nD: An amino acid change away from the active site cannot alter the enzyme’s substrate specificity.\n",
+    "target": "C:By changing the shape of the protein"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nIn animal cells, which of the following represents the most likely pathway that a secretory protein takes as it is synthesized in a cell?\nA: Plasma membrane–Golgi apparatus–ribosome–secretory vesicle–rough ER\nB: Ribosome–Golgi apparatus–rough ER–secretory vesicle–plasma membrane\nC: Plasma membrane–Golgi apparatus–ribosome–secretory vesicle–rough ER\nD: Ribosome–rough ER–Golgi apparatus–secretory vesicle–plasma membrane\n",
+    "target": "D:Ribosome–rough ER–Golgi apparatus–secretory vesicle–plasma membrane"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following is not known to be involved in the control of cell division?\nA: Cyclins\nB: Protein kinases\nC: Checkpoints\nD: Fibroblast cells\n",
+    "target": "D:Fibroblast cells"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nHomologous structures are often cited as evidence for the process of natural selection. All of the following are examples of homologous structures EXCEPT\nA: the wings of a bird and the wings of a bat\nB: the flippers of a whale and the arms of a man\nC: the pectoral fins of a porpoise and the flippers of a seal\nD: the forelegs of an insect and the forelimbs of a dog\n",
+    "target": "D:the forelegs of an insect and the forelimbs of a dog"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following is considered an acid anhydride?\nA: HCl\nB: H2SO3\nC: SO2\nD: Al(NO3)3\n",
+    "target": "C:SO2"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nWhich of the following is expected to be a polar molecule?\nA: PCl4F\nB: BF3\nC: CO2\nD: Si(CH3)4\n",
+    "target": "A:PCl4F"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nFrom the solubility rules, which of the following is true?\nA: All chlorides, bromides, and iodides are soluble\nB: All sulfates are soluble\nC: All hydroxides are soluble\nD: All ammonium-containing compounds are soluble\n",
+    "target": "D:All ammonium-containing compounds are soluble"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA new compound is synthesized and found to be a monoprotic acid with a molar mass of 248 g/mol. When 0.0050 mol of this acid are dissolved in 0.500 L of water, the pH is measured as 3.89. What is the pKa of this acid?\nA: 3.89\nB: 7.78\nC: 5.78\nD: 2.33\n",
+    "target": "C:5.78"
+  },
+  {
+    "input": "Human: 请根据以下问题选择正确的选项：\nA solution contains 2.00 mole of acetic acid, CH3COOH, and 1.00 mole of calcium acetate, Ca(CH3COO)2. The solution is able to resist the addition of a small amount of strong acid or strong base with only minor changes in the pH of the solution. Larger quantities of strong acid or strong base can cause a significant change in pH. How many moles of nitric acid, HNO3, may be added before the pH begins to change significantly?\nA: 0.500 mole\nB: 1.00 mole\nC: 2.00 mole\nD: 3.00 mole\n",
+    "target": "C:2.00 mole"
+  }
+]
