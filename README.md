@@ -23,7 +23,7 @@ L'objectif de ce projet est d'optimiser l'exécution des modèles d'IA sur le NP
 ### Cliquez sur l'image au-dessous pour télécharger la vidéo de démonstration de l'application locale
 [![test_modifie](Images_demo/test_modifie.png)](https://drive.google.com/file/d/1qFW8w_BLaTOvMnAr35MSFvWoepLbVYpI/view?usp=sharing)
 
-####shéma
+#### shéma
 <p align="center">
   <img src="Images_demo/Application_locale.png" alt="Comparaison Image1" width="80%">
 </p>
@@ -32,7 +32,7 @@ L'objectif de ce projet est d'optimiser l'exécution des modèles d'IA sur le NP
 ### Cliquez sur l'image au-dessous pour télécharger la vidéo de démonstration de l'application déploye sur serveur gradio
 [![server_pc](Images_demo/server_pc.png)](https://drive.google.com/file/d/11GqKl9m6_AcClNhnvnNYWsRWcqZ5MGho/view?usp=sharing)
 
-####shéma
+#### shéma
 <p align="center">
   <img src="Images_demo/Application_serveur.png" alt="Comparaison Image1" width="80%">
 </p>
@@ -53,11 +53,17 @@ L'objectif de ce projet est d'optimiser l'exécution des modèles d'IA sur le NP
 <p align="center">
   <img src="Images_demo/Tableau2.png" alt="Comparaison Image1" width="100%">
 </p>
+
 **Les explications des tableaux sont dans le rapport**
 
 
 ## Driver NPU 0.9.6
+[Image système ROCK 5B (noyau 6.1)](https://docs.radxa.com/rock5/rock5b/download)
 
+<p align="center">
+  <img src="Images_demo/sdcard.png" alt="sdcard" width="45%"/>
+  <img src="Images_demo/balena.png" alt="balena" width="45%"/>
+</p>
 
 ## Explication dossier
 
@@ -75,6 +81,7 @@ Il faut modifier le chemin de la chaîne d’outils de compilation croisée selo
 Ce dossier contient les images issues de la comparaison des performances des deux modes d’accélération à l’aide de l’outil de surveillance `rknputop.py`.  
 Installation des dépendances :  
 	```bash
+
 	sudo apt install python3.11-venv
 	
 	python3 -m venv myenv
@@ -130,6 +137,7 @@ Outils de compilation croisée recommandés :
 - **Linux** : `gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu` ([Téléchargement](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11))  
 Exécution :  
 	```bash
+
 	bash build_linux_win.sh
 
 	bash build_linux.sh
@@ -138,11 +146,14 @@ Exécution :
 #### 3. Préparation  
 Déplacez `librkllmrt.so` dans :  
 	```bash
+
 	/path/to/your/rkllm/lib/
 	```
 Ajoutez `ulimit -n 1024000` à `~/.bashrc` :  
 	```bash
+
 	echo "ulimit -n 1024000" >> ~/.bashrc
+
 	source ~/.bashrc
 	```
 
@@ -195,22 +206,27 @@ Intégration de RKLLM dans `llama.cpp` :
 	Téléchargez piper: piper_linux_aarch64.tar.gz dans https://github.com/rhasspy/piper/releases
 
 	Téléchargez :  (https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0/en/en_GB/southern_english_female/low)
+
 	- `CARTE_MODÈLE`
 	- `en_GB-southern_english_female-low.onnx`
 	- `en_GB-southern_english_female-low.onnx.json`
 	Placez-les dans un dossier `GB_female_south/`.  
 Exécution :  
 	```bash
+
 	echo 'This sentence is spoken first. This is Smart Computer Lab multimedia and internet module.' | \
 	./piper --model GB_female_south/en_GB-southern_english_female-low.onnx --output-raw | \
 	aplay -r 15000 -f S16_LE -t raw -
 	```
 ### Utilisation de Whisper
 	sudo apt install libsdl2-dev cmake g++
+
 	git clone https://github.com/ggerganov/whisper.cpp
+
 	cd whisper.cpp
  
 	cmake -B build -DWHISPER_SDL2=ON
+
 	cmake --build build --config Release
 	
 	sudo ./build/bin/whisper-stream -m models/ggml-base.en.bin --step 2000 --length 8000 -c 1 -t 6 -ac 512 -vth 0.6 --language en -f transciption.txt -vth 0.6
@@ -221,13 +237,16 @@ Exécution :
 ### Applications
 #### Exécution locale  
 	```bash
+
 	cmake -B build -DWHISPER_SDL2=ON
+
 	cmake --build build --config Release
 
 	./build/bin/whisper-talk-llama -mw ./models/ggml-base.en.bin -ac 512 -t 4
 	```
 #### Exécution serveur  
 	```bash
+
 	python3 gradio_server.py --target_platform rk3588 --rkllm_model_path ~/rkllm/llama2-chat-7b-hf-002.rkllm
 	```
 
