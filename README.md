@@ -171,6 +171,7 @@ Mode fichier :
 
 ---
 ### Llama2.gguf sur Neon de CPU
+ 
 Installation et compilation :  
 	```bash
 
@@ -188,7 +189,8 @@ Installation et compilation :
 
 	./build/bin/llama-cli -m ./models/llama-2-7b-chat.Q8_0.gguf -c 512 -b 1024 -n 256 --keep 48 --repeat_penalty 1.0 --chat-template llama2 --file prompts/prompt.txt
 	```
-
+Creez le dossier llama.cpp/rkllm/ et mettre le fichier rkllm_main dans ce dossier.
+Remplacez `CMakeLists.txt` dans `llama.cpp/` `llama.cpp/examples/` `llama.cpp/examples/rkllm_main/` pour intégrer rkllm dans llam.cpp. 
 Intégration de RKLLM dans `llama.cpp` :  
 	```bash
 
@@ -294,7 +296,7 @@ Vous pouvez obtenir les modeles conversion de version **1.0.0** **1.0.1** **1.1.
 
 ##
 
-####Remerciement pour le document d'implementation des modeles IA de M.Bakowski dans smartcomputerlab 
+#### Remerciement pour le document d'implementation des modeles IA de M.Bakowski dans smartcomputerlab 
 [https://drive.google.com/file/d/1Iyz1a4ZtbjnAakyNkBEV_fVCMsWv47cu/view?usp=sharing](https://drive.google.com/file/d/1Iyz1a4ZtbjnAakyNkBEV_fVCMsWv47cu/view?usp=sharing).
 
 **Smartcomputerlab-Internet-Multimedia-AI**
