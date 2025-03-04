@@ -1,6 +1,6 @@
 # Plateforme AI embarquée sur Rock Pi 5 (LLaMa autonome) 
-Détecter les Expressions Mathématiques dans les images manuscrites de Leibniz
-
+Réalisation d’un démonstrateur sur la carte Rock Pi 5 avec Whisper (Speech-to-
+Text), Llama2 (sur NPU) et Piper .
 ## Contexte
 Avec l’essor des SBC dédiées à l’IA, le SoC RK3588 se distingue par son NPU de 6 TOPs, optimisant l’inférence des réseaux de neurones. Ce projet exploite ces capacités pour des applications audio et vidéo sur une Rock Pi 5 sous Linux.  
 
